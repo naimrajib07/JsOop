@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    var Shape = function(){
+
+    };
+
+    Shape.prototype.name = 'Shape';
+    Shape.prototype.toString = function(){
+        return this.name;
+    };
+
+    var TwoShape = function(){
+
+    }
+
+    var TempConstructor = function(){
+
+    };
+
+    /**
+    * Inherit Shape for TwoShape
+    * */
+
+    TempConstructor.prototype = new Shape();
+    TwoShape.prototype = new TempConstructor();
+    TwoShape.prototype.constructor = TwoShape;
+
+    /**
+    * Augmenting properties
+    * */
+
+    TwoShape.prototype.name = 'TwoD Shape';
+
+ </script>

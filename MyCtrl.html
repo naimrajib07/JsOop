@@ -1,0 +1,29 @@
+<script type="text/javascript">
+    /**
+     * Created by naim on 9/2/14.
+     */
+
+    var MyConstructor = function(name){
+        this.name = name;
+        this.SayName = function(){
+            return this.name;
+        }
+    }
+
+    var obj = new MyConstructor('naim');
+    obj.SayName();
+
+    /**
+     * Inherit from MyConstructor
+     * */
+
+    var MyConstructorChild = function(){
+        this.name = 'OverWrite Name From Child';
+    }
+
+    MyConstructorChild.prototype = MyConstructor('');
+
+    var childObj = new MyConstructorChild();
+
+    console.log(childObj.name);
+</script>

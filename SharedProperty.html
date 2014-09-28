@@ -1,0 +1,68 @@
+<script type="text/javascript">
+
+    /**
+     * Shape Constructor
+     * */
+
+    var Shape = function(){
+
+    }
+
+    Shape.prototype.name = 'Shape';
+
+    Shape.prototype.getName =  function(){
+        console.log('Called From '+this.name);
+        return this.name;
+    };
+
+    Shape.prototype.toString =  function(){
+        return this.name;
+    };
+
+    /**
+     * TwoDShape constructor
+     * */
+
+    var TwoDShape = function(){
+    }
+
+    TwoDShape.prototype.name = 'TwoDShape';
+
+    /**
+     * Triangle Constructor
+     * */
+    var Triangle = function(side, height){
+        this.side = side;
+        this.height = height;
+    }
+
+    Triangle.prototype.name = 'Triangle';
+
+    Triangle.prototype.area = function(){
+        return this.side * this.height;
+    }
+
+    /**
+     * inheritance
+     * */
+
+    TwoDShape.prototype = new Shape();
+    Triangle.prototype = new TwoDShape();
+
+    /**
+     * access inherited property and method.
+     * */
+
+    triObj = new Triangle(30, 10);
+    triObj.name;
+    triObj.side;
+    triObj.height;
+    triObj.area();
+    triObj.toString();
+
+    var myTdShape = new TwoDShape();
+    myTdShape.toString();
+
+    var myShape = new Shape();
+    myShape.toString();
+</script>

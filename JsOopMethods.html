@@ -1,0 +1,57 @@
+<script type="text/javascript">
+    /**
+     * This example describe the oop behaviour of js object
+     * with it's access specifier.
+     *
+     * http://robertnyman.com/2008/10/14/javascript-how-to-get-private-privileged-public-and-static-members-properties-and-methods/
+     * */
+
+    var Run = function () {
+        // Private variable
+        var _speed = 10;
+
+        // private method
+        var _faster = function () {
+            console.log('Run faster with own privacy!(Private Method).');
+        };
+
+        // Privileged method
+        this.call_faster = function () {
+            console.log('Privileged method can have access of private method.');
+            _faster();
+            console.log('Access private variable value.' + _speed);
+
+        };
+
+        // Public variable
+        this.champion = 'Naim';
+
+        // Public method
+        this.runner = function () {
+            console.log('Runner is a public method');
+            console.log('Public variable '+this.champion+' is the champion.');
+        };
+    };
+
+    // Also prototype public method
+    Run.prototype.public = function () {
+        console.log('This is public method.');
+    }
+
+    // Static property
+    Run.static_run = 5;
+
+    var Robj = new Run();
+
+    //Access Privileged method
+    Robj.call_faster();
+
+    // Access Public method of constructor
+    Robj.runner();
+
+    // Access public method of prototype
+    Robj.public();
+
+    // Access static value
+    console.log('Static variable value '+Run.static_run);
+</script>
